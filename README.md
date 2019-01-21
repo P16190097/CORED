@@ -1,0 +1,3 @@
+# CORED
+
+INIT
