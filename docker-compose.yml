@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  cored:
+    image: cored
+    build:
+      context: ./CORED
+      dockerfile: Dockerfile
