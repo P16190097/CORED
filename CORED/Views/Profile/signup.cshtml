@@ -1,0 +1,35 @@
+﻿@model CORED.Models.ProfileVm
+
+@{ 
+    ViewData["Title"] = "Signup";
+}
+
+<h4>ProfileVm</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="signup">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.FirstName)
+                <input type="text" name="FirstName"/>
+                <br />
+                @Html.LabelFor(model => model.LastName)
+                <input type="text" name="LastName" />
+                <br />
+                @Html.LabelFor(model => model.Age)
+                <input type="number" name="Age" />
+                <br />
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-controller="Home" asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
