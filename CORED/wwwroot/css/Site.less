@@ -1,0 +1,91 @@
+﻿@primary-color: #fff;
+
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+.page-tools {
+    float: right;
+    padding-bottom: 9px;
+}
+
+.gtranslate-dropdown {
+    width: 170px;
+}
+
+.navbar-nav > li > a {
+    padding: 17px;
+}
+
+/* Translation Widget */
+a.gflag {
+    vertical-align: middle;
+    font-size: 18px;
+    padding: 1px 0;
+    background-repeat: no-repeat;
+    background-image: url(//gtranslate.net/flags/24.png);
+}
+
+a.gflag img {
+    border: 0;
+}
+
+a.gflag:hover {
+    background-image: url(//gtranslate.net/flags/24a.png);
+}
+
+#goog-gt-tt {
+    display: none !important;
+}
+
+.goog-te-banner-frame {
+    display: none !important;
+}
+
+.goog-te-menu-value:hover {
+    text-decoration: none !important;
+}
+
+body {
+    top: 0 !important;
+}
+
+#google_translate_element2 {
+    display: none !important;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+
+    .page-tools {
+        float: left;
+    }
+}
