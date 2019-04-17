@@ -9,7 +9,7 @@
     ]
   },
   {
-    "outputFileName": "wwwroot/js/site.min.js",
+    "outputFileName": "wwwroot/js/bundled/site.min.js",
     "inputFiles": [
       "wwwroot/js/site.js",
       "wwwroot/js/Accessibility/gtranslate.js"

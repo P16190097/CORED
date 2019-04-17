@@ -1,11 +1,16 @@
-﻿function googleTranslateElementInit2() { new google.translate.TranslateElement({ pageLanguage: 'en', autoDisplay: false }, 'google_translate_element2'); }
+﻿function googleTranslateElementInit2() {
+    new google.translate.TranslateElement({ pageLanguage: 'en', autoDisplay: false }, 'google_translate_element2');
+}
 
 eval(function (p, a, c, k, e, r) {
     e = function (c) {
         return (c < a ? '' : e(parseInt(c / a))) + ((c = c % a) > 35 ? String.fromCharCode(c + 29) : c.toString(36))
     };
     if (!''.replace(/^/, String)) {
-        while (c--) r[e(c)] = k[c] || e(c); k = [function (e) { return r[e] }]; e = function () {
+        while (c--) r[e(c)] = k[c] || e(c); k = [function (e) {
+            return r[e]
+        }];
+        e = function () {
             return '\\w+'
         };
         c = 1
