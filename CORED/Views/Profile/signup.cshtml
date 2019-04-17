@@ -16,23 +16,21 @@
                 @Html.ValidationMessageFor(Model => Model.FirstName, "", new { @class = "text-danger" })
             </div>
 
-            <div class="form-control">
+            <div class="form-group">
                 @Html.LabelFor(model => model.LastName, new { @class = "control-label" })
                 @Html.TextBoxFor(model => model.LastName, new { @class = "form-control" })
                 @Html.ValidationMessageFor(Model => Model.LastName, "", new { @class = "text-danger" })
             </div>
 
-            <div class="form-control">
-                @Html.LabelFor(model => model.FirstName, new { @class = "control-label" })
-                @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control" })
-                @Html.ValidationMessageFor(Model => Model.FirstName, "", new { @class = "text-danger" })
-
-                @Html.LabelFor(model => model.Age)
-                <input type="number" name="Age" />
+            <div class="form-group">
+                @Html.LabelFor(model => model.Age, new { @class = "control-label" })
+                @*<input type="number" name="Age" />*@
+                @Html.EditorFor(model => model.Age, new { @class = "form-control" })
                 @Html.ValidationMessageFor(Model => Model.Age, "", new { @class = "text-danger" })
             </div>
 
             <br />
+            <input type="search" class="form-control" />
             <input type="submit" value="Create" class="btn btn-default" />
         </form>
     </div>
