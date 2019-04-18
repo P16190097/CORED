@@ -1,0 +1,31 @@
+﻿@model CORED.Models.Search.YouTubeSearchVm
+
+@{
+    <h1>Keyword: @Model.SearchTerm</h1>
+
+    <h2>Results Found: @Model.ResultCount</h2>
+
+    <div>
+        @if (Model.Results != null)
+        {
+            @foreach (var video in Model.Results)
+            {
+                <div>
+                    <h3>@video.Title</h3>
+                    <h4>@video.Channel</h4>
+                    <p>@video.Description</p>
+                    <img src="@video.Thumbnail" />
+                    <p>@video.Live</p>
+                </div>
+            }
+        }
+        else
+        {
+            <div>
+                <h3>No Videos were found</h3>
+            </div>
+
+        }
+
+    </div>
+}
