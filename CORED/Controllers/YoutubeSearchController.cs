@@ -40,7 +40,7 @@ namespace CORED.Controllers
 
             SearchResource.ListRequest listRequest = youtubeService.Search.List("snippet");
             listRequest.Q = keyWord;
-            //listRequest.MaxResults = 5;
+            listRequest.MaxResults = 10;
             listRequest.Type = "video";
 
             SearchListResponse resp = listRequest.Execute();
@@ -53,7 +53,7 @@ namespace CORED.Controllers
                 vid.Thumbnail = result.Snippet.Thumbnails.Default__.Url;
                 vid.Channel = result.Snippet.ChannelTitle;
                 vid.Live = result.Snippet.LiveBroadcastContent;
-                //vid.Url = result.Snippet.;
+                vid.Url = "https://www.youtube.com/watch?v=" + result.Id.VideoId;
                 model.Results.Add(vid);
             };
 

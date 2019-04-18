@@ -11,11 +11,13 @@
             @foreach (var video in Model.Results)
             {
                 <div>
-                    <h3>@video.Title</h3>
-                    <h4>@video.Channel</h4>
-                    <p>@video.Description</p>
-                    <img src="@video.Thumbnail" />
-                    <p>@video.Live</p>
+                    <a href="@video.Url">
+                        <h3>@video.Title</h3>
+                        <h4>@video.Channel</h4>
+                        <p>@video.Description</p>
+                        <img src="@video.Thumbnail" />
+                        <p>@video.Live</p>
+                    </a>                    
                 </div>
             }
         }
