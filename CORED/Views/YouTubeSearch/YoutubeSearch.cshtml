@@ -10,16 +10,13 @@
         {
             @foreach (var video in Model.Results)
             {
-                <div>
-                    <a href="@("https://www.youtube.com/watch?v=" + @video.Url)">
-                        <h3>@video.Title</h3>
-                        <h4>@video.Channel</h4>
-                        <p>@video.Description</p>
-                        <img src="@video.Thumbnail" />
-                        <p>@video.Live</p>    
-                    </a>
-                    @Html.ActionLink(video.Title, "Video", new { url = video.Url })
-                    <a asp-controller="YouTubeSearch" asp-action="Video" asp-route-id="@video.Url">@video.Title</a>
+                <div>                   
+                    <h3>@Html.ActionLink(video.Title, "Video", new { url = video.Url })</h3>
+                    <a href="@("https://www.youtube.com/watch?v=" + @video.Url)">Watch on YouTube</a>
+                    <h4>@video.Channel</h4>
+                    <p>@video.Description</p>
+                    <img src="@video.Thumbnail" />
+                    <p>@video.Live</p>   
                 </div>
             }
         }
