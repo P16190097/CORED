@@ -1,0 +1,23 @@
+﻿@model CORED.Models.Search.VideoVm
+
+@{
+    ViewData["Title"] = "WatchVideo";
+}
+
+<h2>WatchVideo</h2>
+
+<div>
+    <h4>VideoVm</h4>
+    <div>
+        <iframe width="560"
+                height="315"
+                src="@("https://www.youtube.com/embed/" + Model.Url)"
+                frameborder="0"
+                allowfullscreen></iframe>
+    </div>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>
+@*src="@("https://www.youtube.com/watch?v=" + Model.Url)"*@

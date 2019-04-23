@@ -31,7 +31,7 @@ namespace CORED.Controllers
         public ActionResult Search(string keyWord)
         {
             YouTubeSearchVm model = new YouTubeSearchVm();
-            model.Results = new List<VideoVm>();
+            model.Results = new List<SearchResultVm>();
 
             var youtubeService = new YouTubeService(new BaseClientService.Initializer() {
                 ApiKey = _ApiKey,
@@ -47,13 +47,13 @@ namespace CORED.Controllers
 
             foreach(var result in resp.Items)
             {
-                VideoVm vid = new VideoVm();
+                SearchResultVm vid = new SearchResultVm();
                 vid.Title = result.Snippet.Title;
                 vid.Description = result.Snippet.Description;
                 vid.Thumbnail = result.Snippet.Thumbnails.Default__.Url;
                 vid.Channel = result.Snippet.ChannelTitle;
                 vid.Live = result.Snippet.LiveBroadcastContent;
-                vid.Url = "https://www.youtube.com/watch?v=" + result.Id.VideoId;
+                vid.Url = result.Id.VideoId;
                 model.Results.Add(vid);
             };
 
@@ -63,5 +63,13 @@ namespace CORED.Controllers
             return View("YoutubeSearch", model);
         }
 
+        [HttpGet]
+        public ActionResult Video(string url)
+        {
+            VideoVm model = new VideoVm();
+            model.Url = url;
+
+            return View("WatchVideo", model);
+        }
     }
 }

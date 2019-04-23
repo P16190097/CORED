@@ -11,7 +11,7 @@ namespace CORED.Models.Search
 
         public int ResultCount { get; set; }
 
-        public List<VideoVm> Results { get; set; }
+        public List<SearchResultVm> Results { get; set; }
     }
 
     //public YouTubeSearchVm()
