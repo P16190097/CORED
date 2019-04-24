@@ -63,11 +63,38 @@ namespace CORED.Controllers
             return View("YoutubeSearch", model);
         }
 
-        [HttpGet]
         public ActionResult Video(string url)
         {
             VideoVm model = new VideoVm();
+            model.RelatedVideos = new List<SearchResultVm>();
             model.Url = url;
+
+            //need to abstract code to helper class
+
+            var youtubeService = new YouTubeService(new BaseClientService.Initializer()
+            {
+                ApiKey = _ApiKey,
+                ApplicationName = this.GetType().ToString()
+            });
+
+            SearchResource.ListRequest listRequest = youtubeService.Search.List("snippet");
+            listRequest.RelatedToVideoId = url;
+            listRequest.MaxResults = 10;
+            listRequest.Type = "video";
+
+            SearchListResponse resp = listRequest.Execute();
+
+            foreach (var result in resp.Items)
+            {
+                SearchResultVm vid = new SearchResultVm();
+                vid.Title = result.Snippet.Title;
+                vid.Description = result.Snippet.Description;
+                vid.Thumbnail = result.Snippet.Thumbnails.Default__.Url;
+                vid.Channel = result.Snippet.ChannelTitle;
+                vid.Live = result.Snippet.LiveBroadcastContent;
+                vid.Url = result.Id.VideoId;
+                model.RelatedVideos.Add(vid);
+            };
 
             return View("WatchVideo", model);
         }

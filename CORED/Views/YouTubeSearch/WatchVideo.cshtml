@@ -17,6 +17,20 @@
     </div>
 </div>
 <div>
+    <h3>Related Videos</h3>
+    @foreach (var video in Model.RelatedVideos)
+            {
+        <div>
+            <h3>@Html.ActionLink(video.Title, "Video", new { url = video.Url })</h3>
+            <a href="@("https://www.youtube.com/watch?v=" + @video.Url)">Watch on YouTube</a>
+            <h4>@video.Channel</h4>
+            <p>@video.Description</p>
+            <img src="@video.Thumbnail" />
+            <p>@video.Live</p>
+        </div>
+    }
+</div>
+<div>
     @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
     <a asp-action="Index">Back to List</a>
 </div>
