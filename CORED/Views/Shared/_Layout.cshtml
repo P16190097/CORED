@@ -28,7 +28,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">CORED</a>
-            </div>
+            </div>   
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
@@ -55,7 +55,6 @@
                     <a href="#" onclick="doGTranslate('en|es');return false;" title="Spanish" class="gflag nturl" style="background-position:-600px -200px;">
                         <img src="//gtranslate.net/flags/blank.png" height="24" width="24" alt="Spanish" />
                     </a>
-
                     <br />
                     <select onchange="doGTranslate(this);" class="gtranslate-dropdown">
                         <option value="">Select Language</option>
@@ -143,6 +142,12 @@
                     </select>
                     <div id="google_translate_element2">
                     </div>
+                </div>
+                <div class="yt-search-bar">
+                    <form asp-controller="YouTubeSearch" asp-action="Search">
+                        <input type="search" class="form-control" name="KeyWord" />
+                        <button type="submit" class="btn btn-primary">Search YouTube</button>
+                    </form>
                 </div>
             </div>
         </div>

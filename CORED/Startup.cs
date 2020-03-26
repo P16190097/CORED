@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using CORED.Models;
 
 namespace CORED
 {
@@ -22,6 +23,11 @@ namespace CORED
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            services.AddOptions();
+
+            // Add our Config object so it can be injected
+            services.Configure<CoreConfig>(Configuration.GetSection("YouTubeApiKey"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
